@@ -1,0 +1,60 @@
+{
+  "name": "boe",
+  "version": "1.0.0",
+  "description": "boe site",
+  "main": "app.js",
+  "scripts": {
+    "heroku-prebuild": "echo This runs before Heroku installs dependencies.",
+    "heroku-postbuild": "echo This runs after Heroku installs dependencies, but before Heroku prunes and caches dependencies.",
+    "heroku-cleanup": "echo This runs after Heroku prunes and caches dependencies.",
+    "test": "node app.js",
+    "start": "nodemon server.js"
+  },
+  "author": "Henry Colwell",
+  "collaborators": [
+    "Alejandro Fernandez-Sarasua",
+    "Lorena Sarasua-Fernandez",
+    "Eduardo DuQuesne"
+  ],
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "body-parser": "^1.20.1",
+    "bootstrap": "^5.2.3",
+    "config": "^3.3.8",
+    "connect-mongo": "^4.6.0",
+    "dateformat": "^5.0.3",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "express-fileupload": "^1.4.0",
+    "express-flash": "^0.0.2",
+    "express-session": "^1.17.3",
+    "heroku": "^7.65.0",
+    "http": "^0.0.1-security",
+    "https": "^1.0.0",
+    "joi": "^17.7.0",
+    "method-override": "^3.0.0",
+    "mongo": "^0.1.0",
+    "mongodb": "^4.11.0",
+    "mongoose": "^6.8.0",
+    "multer": "^1.4.5-lts.1",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
+    "swiper": "^9.0.3"
+  },
+  "engines": {
+    "node": ">=16.15.1"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.3",
+    "nodemon": "^2.0.20"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LedoLedoLedo/BOEv1.git"
+  },
+  "bugs": {
+    "url": "https://github.com/LedoLedoLedo/BOEv1/issues"
+  },
+  "homepage": "https://github.com/LedoLedoLedo/BOEv1#readme"
+}
