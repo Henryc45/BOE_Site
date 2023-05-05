@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <%- include('../partials/head'); %>
+    <!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '599068325029989');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=599068325029989&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+<meta name="facebook-domain-verification" content="45a7n6j6mb7oxreski6bvl72mpiw7q" />
+  </head>
+  <body class="lo-body">
+    <!-- Navigation Bar -->
+    <%- include('../partials/nav'); %>
+    <section class="lo-section-main">
+
+<!-- Guide Sign Up Window -->
+<div class="overlay" id="divOne">
+  <div class="wrapper">
+    <h2>Sign up to get your FREE guide to a skilled trade career in South Florida</h2>
+    <a href="#" class="close">&times;</a>
+    <div class="content">
+      <div class="container">
+        <form action="/guidesignup" method="post">
+          <input type="text" name="fname" placeholder="First Name"><img class="guidecover" src="../images/Guidecover.png" alt="" /><br>
+          <input type="text" name="lname" placeholder="Last Name"><br>
+          <input type="text" name="email" placeholder="Email"><br>
+          <button type="submit">Sign Up</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+      <h3>
+        No college degree? No problem.
+        <a target="_blank" href="https://bringingopportunitieseverywhere.blogspot.com/">
+          <img class="headerimage1" src="../images/HeaderPic3.jpeg" alt=""></a>
+        <a target="_blank" href="https://bringingopportunitieseverywhere.blogspot.com/">
+            <img class="headerimage2" src="../images/welder.png" alt=""></a><br>
+            <p><em class="headerimagecaption">click either image to visit our BOE blog</em></p>
+        <a href="#divOne"><img class="headerimage3" src="../images/HeaderPic1.png" alt=""></a>
+            <!-- <div class="box"> -->
+              <button style="background: #539165; border: none;"type="button" class="guidebtn btn btn-primary btn-lg btn-block"><a
+              style="font-size: 21px; text-decoration: none; Color: white;" href="#divOne">
+              Click here for a FREE guide to a high salary with no student loan debt</a></button>
+            <!-- </div> -->
+      </h3>
+      <p class="lo-error-message">
+        <% if (appError && appError.length !== 0) { %>
+        <span
+          ><i class="fa fa-exclamation-triangle" aria-hidden="true"> </i>
+        </span>
+        <%=appError %> <% } %>
+      </p>
+      <section class="lo-section-half lo-container">
+        <!-- Basic Gallery -->
+        <%- include('../partials/listings-basic'); %>
+
+        <!-- In Depth Gallery  -->
+        <%- include('../partials/listings-depth'); %>
+      </section>
+    </section>
+    <!-- Footer Section -->
+    <%- include('../partials/footer'); %>
+
+    <!-- External JavaScript and jQuery -->
+    <script src="/js/search.js"></script>
+    <script src="/js/listings.js"></script>
+  </body>
+</html>

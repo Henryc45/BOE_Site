@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <%- include('../partials/head'); %>
+    <!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '599068325029989');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=599068325029989&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+  </head>
+  <body class="lo-body lo-body-pop">
+    <%- include('../partials/nav'); %>
+    <section class="lo-section-main lo-section-main-tall">
+      <h3>Looking to kickstart a career in a skilled trade? Join BOE.</h3>
+      <div class="lo-container lo-container-small">
+        <span class="lo-error-message">
+          <% if (regError) { %> <%=regError %> <% } %>
+          <% if (existError) { %> <%=existError %> <% } %>
+        </span>
+        <form class="form" action="/register" method="POST">
+          <div>
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" name="firstName" required />
+          </div>
+          <div>
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" name="lastName" required />
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+          <div>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required />
+          </div>
+          <button type="submit">Sign Up</button>
+        </form>
+        <aside>
+          <span>Already have an account?</span>
+          <a href="/login">Log In</a>
+        </aside>
+      </div>
+    </section>
+    <!-- Footer Section -->
+    <%- include('../partials/footer'); %>
+  </body>
+</html>
