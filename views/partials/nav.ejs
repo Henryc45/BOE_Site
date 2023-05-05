@@ -1,0 +1,90 @@
+<nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <a class="navitem navbar-brand" href="/">
+      <div class="lo-logo-wrapper">
+        <img
+          class="logo"
+          src="/images/company-logos/boe.png"
+          alt="green square with BOE logo in white"
+        />
+      </div>
+      <span class="slogan">Bringing Opportunities Everywhere</span>
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon">
+        <i class="fa fa-bars" aria-hidden="true"></i>
+      </span>
+    </button>
+    <div
+      class="collapse navbar-collapse lo-nav-links-wrapper"
+      id="navbarSupportedContent"
+    >
+      <ul class="navlist navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="<%= path==="/" ? "page" : "false" %>" href="/">
+            <i class="navicon1 fa-solid fa-house"></i>
+            <span>Home</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="navitem nav-link"
+            aria-current="<%= path==="/subscribe" ? "page" : "false" %>"
+            href="/subscribe"
+          >
+            <i class="navicon2 fa-solid fa-bell"></i>
+            <span>Subscribe</span>
+          </a>
+        </li>
+        <!-- <li class="nav-item">
+          <a
+            class="navitem nav-link"
+            aria-current="<%# path==="/resources" ? "page" : "false" %>"
+            href="/resources"
+          >
+            <i class="navicon3 fa-sharp fa-solid fa-book"></i>
+            <span>Resources</span>
+          </a>
+        </li> -->
+        <li class="nav-item">
+          <a
+            class="navitem nav-link"
+            aria-current="<%= path==="/contact" ? "page" : "false" %>"
+            href="/contact"
+          >
+            <i class="navicon4 fa-solid fa-handshake"></i>
+            <span>Contact Us</span>
+          </a>
+        </li>
+        <li>
+          <a
+            class="navitem nav-link"
+            aria-current="<%= path==="/profile" ? "page" : "false" %>"
+            <% if (isAuthenticated) { %>
+              href="/profile/<%= firstName.toLowerCase() %>.<%= lastName.toLowerCase() %>"
+            <% } else { %>
+              href="/profile/:firstName.:lastName"
+            <% } %>  
+          >
+            <i class="navicon4 fa-solid fa-user"></i>
+            <span>Profile</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <% if (isAuthenticated) { %> <%- include('./logout-link'); %> <% }
+          else { %> <%- include('./login-link'); %> <% } %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="lo-nav-extension"></div>
+

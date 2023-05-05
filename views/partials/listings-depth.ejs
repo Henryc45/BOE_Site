@@ -1,0 +1,63 @@
+<section class="indepthlist list-group lo-in-depth-list">
+  <ul class="galleryUL" id="lo-in-depth-list">
+    <% schools.forEach((school, i) => { %>
+    <li
+      data-id=<%= school._id %>
+      class="indepthlistitema list-group-item list-group-item-action <%= (i === 0) ? "show" : "" %>"
+      href="#list-item-<%=i%>"
+    >
+      <div class="indepthlistitemcontainer lo-in-depth-list-top-info">
+        <section class="lo-list-img-side">
+          <% if (school.logoUrl) { %>
+          <div class="lo-logo-wrapper">
+            <img class="companylogo" src="<%= school.logoUrl %>" alt="Logo" />
+          </div>
+          <% } else { %>
+          <div class="lo-logo-wrapper empty"></div>
+          <% } %>
+        </section>
+
+        <section class="indepthlistitemtextcontainer lo-list-text-side">
+          <a
+            class="indepthlistitemOrganization"
+            href="<%= school.siteUrl %>"
+            target="_blank"
+          >
+            <h2><%= school.name %></h2></a
+          >
+          <p class="indepthlistitemCategory"><%= school.type %></p>
+          <p class="indepthlistitemCity">
+            <%= school.location.city %>, <%= school.location.state %>
+          </p>
+        </section>
+      </div>
+      <hr />
+      <h6 class="descriptionlabel">Description</h6>
+      <p class="description"><%= school.description %></p>
+      <hr />
+      <h6 class="tradesofferedlabel">Program</h6>
+      <p class="tradesoffered"><%= school.program %></p>
+      <hr />
+      <%- include('./point-of-contact', {school: school}); %>
+      <hr />
+
+      <% if (school.premiumMembership) { %> <%- include('./application-premium',
+      {school: school}); %> <% } else { %> <%- include('./application', {school:
+      school}); %> <% } %>
+
+      <aside class="lo-save-listing">
+        <form action="/user-likes" method="POST">
+          <input type="hidden" name="school_id" value="<%= school._id %>" />
+          <button class="icon-button" type="submit" aria-label="like" alt="like">
+            <i
+              class="fa-solid fa-heart <%= school.is_liked ? 'liked' : '' %>"
+              aria-label="like"
+              alt="like"
+            ></i>
+          </button>
+        </form>
+      </aside>
+    </li>
+    <% }); %>
+  </ul>
+</section>

@@ -1,0 +1,76 @@
+<form action="/usersignup" method="post">
+  <h3 class="createaccountheader">
+    Subscribe to our newsletter for free entry to BOE's next event and updates on vocational training programs in South Florida!
+  <hr />
+  <p class="lo-error-message">
+    <% if (subError && subError.length !== 0) { %>
+    <span><i class="fa fa-exclamation-triangle" aria-hidden="true"> </i> </span>
+    <%=subError %> <% } %>
+  </p>
+  <fieldset class="lo-name-section">
+    <section>
+      <label for="fname" class="form-label">First Name</label>
+      <input type="text" name="fname" autocomplete="given-name" value="<%=
+      isAuthenticated ? firstName : "" %>" required />
+    </section>
+    <section>
+      <label for="lname" class="form-label">Last Name</label>
+      <input type="text" name="lname" autocomplete="family-name" value="<%=
+      isAuthenticated ? lastName : "" %>" required />
+    </section>
+  </fieldset>
+  <label class="emaillabel" for="email">Email</label>
+  <input type="email" name="email" autocomplete="email" value="<%=
+  isAuthenticated ? email : "" %>" required />
+  <fieldset class="lo-address-section">
+    <section>
+      <label for="city">City</label>
+      <input type="text" name="city" autocomplete="address-level2" required />
+    </section>
+    <section>
+      <label for="state">State</label>
+      <select name="state" id="state">
+        <option value="Florida">Florida</option>
+      </select>
+    </section>
+    <section>
+      <label for="zipcode">ZIP Code</label>
+      <input type="text" name="zipcode" autocomplete="postal-code" required />
+    </section>
+  </fieldset>
+  <hr />
+  <fieldset class="lo-trade-section">
+    <legend>List up to 3 trades that interest you:</legend>
+    <input
+      type="text"
+      placeholder="Enter Trade 1"
+      name="trade1"
+      autocomplete="off"
+      list="trade-options"
+      required
+    />
+
+    <input
+      type="text"
+      placeholder="Enter Trade 2 (optional)"
+      autocomplete="off"
+      name="trade2"
+      list="trade-options"
+    />
+
+    <input
+      type="text"
+      placeholder="Enter Trade 3 (optional)"
+      autocomplete="off"
+      name="trade3"
+      list="trade-options"
+    />
+
+    <datalist id="trade-options">
+      <% programs.forEach( program => { %>
+      <option value="<%= program %>"></option>
+      <% }); %>
+    </datalist>
+  </fieldset>
+  <button type="submit">Subscribe</button>
+</form>

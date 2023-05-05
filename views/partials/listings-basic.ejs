@@ -1,0 +1,53 @@
+<section class="basiclist list-group lo-basic-list">
+<h6 class="basiclistTitle"> <strong>Find South Florida Training Programs</strong></h6>
+  <section class="lo-search-wrapper">
+    <input
+      class="searchinput"
+      type="text"
+      id="searchInput"
+      onkeyup="searchBar()"
+      placeholder="Search by trade, city, or business..."
+    />
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <p><span id="">2 </span>results</p>
+  </section>
+  <section id="lo-search-empty">
+    <h3>Sorry - no programs found</h3>
+    <p>Please try a different search term</p>
+  </section>
+  <ul class="galleryUL" id="lo-basic-list">
+    <% schools.forEach(function(school, i) { %>
+    <li
+      class="lo-basic-list-item"
+      data-id=<%= school._id %>
+      >
+      <a class="list-group-item list-group-item-action" aria-current="<%= i === 0 ? "location" : "false" %>">
+        <section class="lo-list-img-side">
+          <div class="lo-logo-wrapper">
+            <img class="companylogo" src="<%= school.logoUrl %>" alt="Logo" />
+          </div>
+        </section>
+        <section class="basiclistitemtextcontainer lo-list-text-side">
+          <h6 class="basiclistitemOrganization"><%= school.name %></h6>
+          <p class="basiclistitemCategory"><%= school.type %></p>
+          <p class="basiclistitemTrade"><%= school.program %></p>
+          <p class="basiclistitemCity">
+            <%= school.location.city %>, <%= school.location.state %>
+          </p>
+        </section>
+      </a>
+      <aside class="lo-save-listing">
+        <form action="/user-likes" method="POST">
+          <input type="hidden" name="school_id" value= "<%= school._id %>" />
+          <button class="icon-button" type="submit" aria-label="like" alt="like">
+            <i class="fa-solid fa-heart <%= school.is_liked ? 'liked' : '' %>"
+               aria-label="like"
+               alt="like"
+            ></i>
+          </button>
+        </form>
+      </aside>
+    </li>
+    <% }); %>
+  </ul>
+</section>

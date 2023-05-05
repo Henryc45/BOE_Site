@@ -1,0 +1,22 @@
+<form action="/externalApp" class="applicationbutton" method="post">
+  <input
+    class="organizationtextbox"
+    type="hidden"
+    name="organization"
+    value="<%= school.name %>"
+  />
+  <input type="hidden" name="org_id" value="<%= school._id %>" />
+  <input
+    class="orgApplicationURL"
+    type="hidden"
+    name="orgApplicationURL"
+    value="<%= school.applyUrl %>"
+  />
+  <br />
+  <button style="height: 50px;" name="apply" type="submit" class="applybtn btn btn-primary">
+    Apply Now <i class="fa-solid fa-square-arrow-up-right"></i>
+  </button>
+  <br />
+  <br />
+  <br />
+</form>
